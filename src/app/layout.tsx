@@ -1,8 +1,8 @@
 import type {Metadata} from "next";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "@/ component/footers"
-import Nav from "@/ component/nav";
+import Footer from "../ccomponent/footers"
+import Nav from "../ccomponent/nav";
 
 export const metadata: Metadata = {
     title: "Amirhossein Portfolio",
