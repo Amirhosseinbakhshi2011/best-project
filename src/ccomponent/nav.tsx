@@ -104,14 +104,14 @@ export default function Nav() {
                                 </li>
 
                                 <li className="nav-item rounded-3 bg-white">
-                                    <Link href="/myproject" className="nav-link">حرفه های من</Link>
+                                    <a href="/myproject" className="nav-link">حرفه های من</a>
                                 </li>
                                 <li className="nav-item rounded-3 bg-white">
-                                    <Link href="/weblog" className="nav-link">وبلاگ</Link>
+                                    <a href="/weblog" className="nav-link">وبلاگ</a>
                                 </li>
 
                                 <li className="nav-item rounded-3 bg-white">
-                                    <Link href="/call-me" className="nav-link">تماس با من</Link>
+                                    <a href="/call-me" className="nav-link">تماس با من</a>
                                 </li>
                             </ul>
                         </div>
