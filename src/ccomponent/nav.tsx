@@ -1,9 +1,83 @@
+"use client";
+
+import { useEffect } from "react";
 import Script from "next/script";
 import Image from "next/image";
-import Link from 'next/link';
+import Link from "next/link";
 import logo from "src/app/ChatGPT Image Jul 2, 2026, 10_20_25 PM.png";
 
 export default function Nav() {
+    useEffect(() => {
+        const navbar = document.querySelector(".navbar");
+        const toTopBtn = document.querySelector<HTMLElement>("#to-top");
+
+        // Sticky Navbar
+        const userScroll = () => {
+            if (window.scrollY > 50) {
+                navbar?.classList.add("navbar-sticky");
+                toTopBtn?.classList.add("show");
+            } else {
+                navbar?.classList.remove("navbar-sticky");
+                toTopBtn?.classList.remove("show");
+            }
+        };
+
+        window.addEventListener("scroll", userScroll);
+
+        // Scroll To Top
+        const scrollToTop = () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+
+        if (toTopBtn) {
+            toTopBtn.addEventListener("click", scrollToTop);
+        }
+
+        // Counter Animation
+        const counters =
+            document.querySelectorAll<HTMLElement>(".counter");
+
+        const incrementStats = () => {
+            counters.forEach((counter) => {
+                counter.innerText = "0";
+
+                const target = Number(
+                    counter.getAttribute("data-target") || 0
+                );
+
+                const updateCounter = () => {
+                    const current = Number(counter.innerText);
+                    const increment = target / 200;
+
+                    if (current < target) {
+                        counter.innerText = String(
+                            Math.ceil(current + increment)
+                        );
+                        setTimeout(updateCounter, 10);
+                    } else {
+                        counter.innerText = String(target);
+                    }
+                };
+
+                updateCounter();
+            });
+        };
+
+        incrementStats();
+
+        return () => {
+            window.removeEventListener("scroll", userScroll);
+
+            if (toTopBtn) {
+                toTopBtn.removeEventListener(
+                    "click",
+                    scrollToTop
+                );
+            }
+        };
+    }, []);
+
     return (
         <>
             {/* Bootstrap JS */}
@@ -12,72 +86,9 @@ export default function Nav() {
                 strategy="afterInteractive"
             />
 
-            {/* Custom JS */}
-            <Script id="custom-script" strategy="afterInteractive">
-                {`
-                    function userScroll() {
-                        const navbar = document.querySelector('.navbar');
-                        const toTopBtn = document.querySelector('#to-top');
-
-                        window.addEventListener('scroll', function () {
-                            if (window.scrollY > 50) {
-                                navbar?.classList.add('navbar-sticky');
-                                if(toTopBtn){
-                                    toTopBtn.classList.add('show');
-                                } else {
-                                    navbar?.classList.remove('navbar-sticky');
-                                    if(toTopBtn){
-                                        toTopBtn.classList.remove('show');
-                                    }
-                                }
-                            });
-                        }
-
-                        function scrollToTop() {
-                            document.body.scrollTop = 0;
-                            document.documentElement.scrollTop = 0;
-                        }
-
-                        function incrementStats() {
-                            const counters = document.querySelectorAll('.counter');
-
-                            counters.forEach(function (counter) {
-                                counter.innerText = 0;
-
-                                const updateCounter = function () {
-                                    const target = +counter.getAttribute('data-target');
-                                    const c = +counter.innerText;
-
-                                    const increment = target / 200;
-
-                                    if (c < target) {
-                                        counter.innerText = Math.ceil(c + increment);
-                                        setTimeout(updateCounter, 10);
-                                    } else {
-                                        counter.innerText = target;
-                                    }
-                                }
-
-                                updateCounter();
-                            });
-                        }
-
-                        document.addEventListener('DOMContentLoaded', userScroll);
-                        document.addEventListener('DOMContentLoaded', incrementStats);
-
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const btn = document.querySelector('#to-top');
-
-                            if(btn){
-                                btn.addEventListener('click', scrollToTop);
-                            }
-                        });
-                    `}
-            </Script>
-
             <div className="container">
                 <nav className="navbar navbar-expand-lg sticky-top text-dark">
-                    <Link href="/src/public" className="navbar-brand">
+                    <Link href="/" className="navbar-brand">
                         <Image
                             src={logo}
                             alt="Amirhossein Developer"
@@ -93,25 +104,49 @@ export default function Nav() {
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#navbarNav"
+                            aria-controls="navbarNav"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
                         >
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
-                        <div className="collapse navbar-collapse rounded-3" id="navbarNav">
-                            <ul className="navbar-nav ms-auto mt-auto">
-                                <li className="nav-item rounded-3 bg-white">
-                                    <Link href="/" className="nav-link">خانه</Link>
+                        <div
+                            className="collapse navbar-collapse rounded-3"
+                            id="navbarNav"
+                        >
+                            <ul className="navbar-nav ms-auto mt-auto ">
+                                <li className="nav-item rounded-3 bg-white ">
+                                    <Link href="/" className="nav-link m-auto">
+                                        خانه
+                                    </Link>
                                 </li>
 
-                                <li className="nav-item rounded-3 bg-white">
-                                    <a href="/myproject" className="nav-link">حرفه های من</a>
-                                </li>
-                                <li className="nav-item rounded-3 bg-white">
-                                    <a href="/weblog" className="nav-link">وبلاگ</a>
+                                <li className="nav-item rounded-3 bg-white ">
+                                    <Link
+                                        href="/myproject"
+                                        className="nav-link m-auto"
+                                    >
+                                        حرفه های من
+                                    </Link>
                                 </li>
 
-                                <li className="nav-item rounded-3 bg-white">
-                                    <a href="/call-me" className="nav-link">تماس با من</a>
+                                <li className="nav-item rounded-3 bg-white ">
+                                    <Link
+                                        href="/weblog"
+                                        className="nav-link m-auto"
+                                    >
+                                        وبلاگ
+                                    </Link>
+                                </li>
+
+                                <li className="nav-item rounded-3 bg-white ">
+                                    <Link
+                                        href="/call-me"
+                                        className="nav-link m-auto"
+                                    >
+                                        تماس با من
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
