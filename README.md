@@ -1,46 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# best-project 🚀
 
-## Getting Started
+اولین پروژه‌ای که با Next.js ساختم و روی Vercel هاست کردم.
 
-First, run the development server:
-you must frist 
+یه سایت شخصی ساده و تمیز که نشون می‌ده چطور می‌شه با Next.js + React + TypeScript یه چیز مدرن و سریع بالا آورد.
+
+**ساخته شده توسط امیرحسین بخشی**
+
+---
+
+## دمو
+
+🔗 [https://amirhosseinbakhshi.vercel.app](https://amirhosseinbakhshi.vercel.app/)
+
+---
+
+## تکنولوژی‌ها
+
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS (احتمالاً)
+- Vercel برای دیپلوی
+
+---
+
+## اجرا روی لوکال
+
 ```bash
-          1
 npm install
-```
-```bash
-          2
-pnpm create next-app@latest my-app --yes
-cd my-app
-pnpm dev
-npm install
-```
-```bash
-         3
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+بعد برو روی [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## چرا این پروژه مهمه؟
 
-## Learn More
+چون اولین پروژه‌ای بود که واقعاً هاست کردم و به بقیه نشون دادم.  
+از اینجا شروع شد که بفهمم Next.js چقدر قوی و راحته.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-if you don't like it you can click this https://amirhosseinbakhshi.vercel.app/
-
+ساخته شده با عشق به کدنویسی ❤️  
+Amirhossein Bakhshi | ۱۶ ساله | ایران
